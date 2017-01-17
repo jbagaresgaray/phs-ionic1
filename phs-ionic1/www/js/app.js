@@ -11,7 +11,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     $ionicPlatform.ready(function() {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
-        if (cordova.platformId === "ios" && window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+        if (window.cordova && cordova.platformId === "ios" && window.cordova.plugins && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
             cordova.plugins.Keyboard.disableScroll(true);
 
@@ -41,6 +41,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             abstract: true,
             templateUrl: "templates/tabs.html"
         })
+        .state('tab.sign-out', {
+            url: "/sign-out",
+            views: {
+                'mainContent': {
+                    templateUrl: "templates/sign-out.html"
+                }
+            }
+        })
         .state('tab.calendar', {
             url: "/calendar",
             views: {
@@ -49,7 +57,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                 }
             }
         })
-        .state('app.newEvent', {
+        .state('tab.newEvent', {
             url: "/newevent",
             views: {
                 'mainContent': {

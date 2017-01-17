@@ -1,31 +1,37 @@
 angular.module('starter.controllers', [])
-    .controller('layoutCtrl', ['$scope', 'app365api', function($scope, app365api){
+    .controller('layoutCtrl', ['$scope', 'app365api', function($scope, app365api) {
         var vm = this;
 
-        vm.getusername = function () {
+        vm.getusername = function() {
             // Get signed-in user name.
             vm.userName = app365api.getUserName();
         };
 
         vm.getusername();
     }])
-    .controller('o365Ctrl', ['$scope', 'app365api','$state', function($scope, app365api,$state) {
+    .controller('o365Ctrl', ['$scope', 'app365api', '$state', function($scope, app365api, $state) {
 
         $scope.signIn = function() {
-            // app365api.login(function(reason) {
-            //     if (typeof reason == 'undefined') {
-            //         $state.go('tab.calendar');
-            //     }
-            // });
-            $state.go('tab.calendar');
+            app365api.login(function(reason) {
+                if (typeof reason == 'undefined') {
+                    $state.go('tab.calendar');
+                }
+            });
+            // $state.go('tab.calendar');
         }
     }])
     .controller('signOutCtrl', ['$scope', '$state', 'app365api', function($scope, $state, app365api) {
-        $scope.signout = function() {
+        var vm = this;
+        console.log('signOutCtrl');
+
+        vm.signout = function() {
+            console.log('signout');
             // Logout and navigate to sign-in page.
             app365api.logout();
             $state.go('sign-in');
         }
+
+        vm.signout();
     }])
     .controller('newEventCtrl', ['$scope', '$state', '$ionicLoading', 'app365api', function($scope, $state, $ionicLoading, app365api) {
         var vm = this;
@@ -104,7 +110,7 @@ angular.module('starter.controllers', [])
                 });
         };
 
-        vm.getEvent();
+        // vm.getEvent();
     }])
     .controller('calendarCtrl', ['$scope', '$stateParams', '$ionicLoading', '$ionicPopup', 'app365api', function($scope, $stateParams, $ionicLoading, $ionicPopup, app365api) {
         var vm = this;
@@ -192,8 +198,8 @@ angular.module('starter.controllers', [])
 
         vm.loadList = function() {
             // Get Outlook client object.
-            outlookClient = app365api.outlookClientObj();
-            getEvents();
+            // outlookClient = app365api.outlookClientObj();
+            // getEvents();
 
         };
 
