@@ -8,7 +8,7 @@ var O365Libraries = [
     'services/office365/scripts/sharepoint.js'
 ];
 
-O365Libraries.forEach(function (path, index, array) {
+O365Libraries.forEach(function(path, index, array) {
     var scriptTag = document.createElement('script');
     scriptTag.setAttribute('src', path);
     document.head.appendChild(scriptTag).parentNode.removeChild(scriptTag);

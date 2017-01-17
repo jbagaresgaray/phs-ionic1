@@ -1,5 +1,6 @@
 var O365Auth;
 (function (O365Auth) {
+
     var Token = (function () {
         function Token(idToken, context, resourceId, clientId, redirectUri) {
             var encoded_idToken = idToken.split('.')[1].replace('-', '+').replace('_', '/'), decoded_idToken = Microsoft.Utility.decodeBase64AsString(encoded_idToken);
@@ -93,6 +94,7 @@ var O365Auth;
         });
         return Token;
     })();
+
     O365Auth.Token = Token;
 
     var CacheManager = (function () {
@@ -175,7 +177,7 @@ var O365Auth;
     })();
 
     O365Auth.deferred;
-
+    
     var Context = (function () {
         function Context(authUri, redirectUri) {
             this._redirectUri = 'http://localhost/';

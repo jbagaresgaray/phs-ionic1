@@ -82,4 +82,5 @@
     </platform>
     <plugin name="cordova-plugin-ms-adal" xmlns="http://schemas.microsoft.com/appx/2014/htmlapps" />
     <plugin name="cordova-plugin-device" spec="~1.1.4" />
+    <plugin name="cordova-plugin-inappbrowser" spec="~1.6.1" />
 </widget>
