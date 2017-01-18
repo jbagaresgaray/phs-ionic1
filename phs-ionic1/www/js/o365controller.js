@@ -110,7 +110,7 @@ angular.module('starter.controllers', [])
                 });
         };
 
-        // vm.getEvent();
+        vm.getEvent();
     }])
     .controller('calendarCtrl', ['$scope', '$stateParams', '$ionicLoading', '$ionicPopup', 'app365api', function($scope, $stateParams, $ionicLoading, $ionicPopup, app365api) {
         var vm = this;
@@ -191,15 +191,15 @@ angular.module('starter.controllers', [])
                                 });
                         });
                 } else {
-                    // do nothing when user cancel on delete confirmation dialog.                     
+                    // do nothing when user cancel on delete confirmation dialog.
                 }
             });
         };
 
         vm.loadList = function() {
             // Get Outlook client object.
-            // outlookClient = app365api.outlookClientObj();
-            // getEvents();
+            outlookClient = app365api.outlookClientObj();
+            getEvents();
 
         };
 
