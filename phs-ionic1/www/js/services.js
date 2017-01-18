@@ -14,6 +14,7 @@ angular.module('starter.services', [])
 
             authContext.getIdToken("https://outlook.office365.com/")
                 .then((function(token) {
+                    
                     // Get auth token
                     authtoken = token;
                     // Get user name from token object.
